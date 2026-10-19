@@ -1,0 +1,53 @@
+{
+  "ts": "2026-10-19T20:00:00+04:00",
+  "mode": "offline-stub",
+  "note": "Scoring logic is pure Python and testable offline. LLM-dependent items (g3, g5) require the live Django service and are marked pending. Replace this file with a live run before tagging design-review.",
+  "chat_model": "pending",
+  "db": "offline-fixture",
+  "passed": 2,
+  "total": 5,
+  "pass_rate": 0.40,
+  "threshold": 0.70,
+  "items": [
+    {
+      "id": "g1",
+      "type": "factual",
+      "pass": true,
+      "status": "answered",
+      "answer": "Competitive score = 80×1.5 + 90×1.0 + 75×0.5 = 120 + 90 + 37.5 = 247.5. Cutoff range 195–215. Score 247.5 is clearly above the range. Zone: Safe.",
+      "why": []
+    },
+    {
+      "id": "g2",
+      "type": "factual",
+      "pass": true,
+      "status": "answered",
+      "answer": "When no programs fall in the Safe zone the API response includes a 'warning' field with the message that the student has no clearly safe options and should review their list carefully.",
+      "why": []
+    },
+    {
+      "id": "g3",
+      "type": "reasoning",
+      "pass": false,
+      "status": "pending",
+      "answer": null,
+      "why": ["LLM explanation not available offline — requires live Django service and OpenRouter key"]
+    },
+    {
+      "id": "g4",
+      "type": "edge",
+      "pass": false,
+      "status": "pending",
+      "answer": null,
+      "why": ["validation logic not yet implemented in the API endpoint — planned Week 2"]
+    },
+    {
+      "id": "g5",
+      "type": "refusal",
+      "pass": false,
+      "status": "pending",
+      "answer": null,
+      "why": ["requires live LLM call — refusal behaviour depends on system prompt enforcement, testable only with running service"]
+    }
+  ]
+}
