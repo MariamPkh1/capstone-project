@@ -62,9 +62,10 @@ def main(argv):
     scores = {}
     for arg in argv:
         subject, _, value = arg.partition("=")
-        try:
-            scores[subject] = float(value) if "." in value else int(value)
-        except ValueError:
+        try: 
+            number = float(value)
+            scores[subject] = int(number) if number.is_integer() else number
+        except (ValueError, OverflowError):
             scores[subject] = value  # let validation reject it
     data = load_data()
     print(data["data_label"])
