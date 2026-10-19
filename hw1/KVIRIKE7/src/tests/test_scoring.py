@@ -3,7 +3,7 @@ import time
 import pytest
 
 from src.scoring import (InvalidScore, competitive_score, evaluate, load_data,
-                         zone)
+                         main, zone)
 
 CS = {"program_id": "P", "subjects": {"maths": 3, "english": 1}}
 
@@ -56,3 +56,14 @@ def test_speed_200_programs():  # AC7
     start = time.perf_counter()
     evaluate({"maths": 180, "english": 160}, programs)
     assert time.perf_counter() - start < 0.05
+
+
+def test_cli_accepts_scientific_notation(capsys):  # found by hand: "1e2" was rejected
+    assert main(["maths=1e2", "english=100"]) == 0
+    assert "SAMPLE-CS" in capsys.readouterr().out
+
+
+def test_cli_rejects_out_of_range_scientific_notation(capsys):
+    assert main(["maths=1e3"]) == 1
+    assert "outside 0-200" in capsys.readouterr().out
+  
