@@ -1,6 +1,6 @@
 # HW1 golden questions · Score and zone for one applicant
 
-Run on 19 October 2026, from `hw1/KVIRIKE7`, with `python -m src.scoring <subject=score ...>`. Data: `src/data/programs.json` (SAMPLE DATA, invented numbers, not real NAEC cutoffs). Unit tests: `python -m pytest hw1\KVIRIKE7` gave 15 passed.
+Run on 19 October 2026, from `hw1/KVIRIKE7`, with `python -m src.scoring <subject=score ...>`. Data: `src/data/programs.json` (SAMPLE DATA, invented numbers, not real NAEC cutoffs). Unit tests: `python -m pytest hw1\KVIRIKE7` gave 17 passed.
 
 | # | Question (input) | Expected | Actual | Pass? | How I ran it |
 |---|---|---|---|---|---|
