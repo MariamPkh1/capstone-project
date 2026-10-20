@@ -1,0 +1,21 @@
+{
+  "data_label": "SAMPLE DATA - invented numbers for testing, NOT real NAEC cutoffs",
+  "score_max": 200,
+  "programs": [
+    {"program_id": "SAMPLE-CS",  "name": "Sample Computer Science",
+     "subjects": {"maths": 3, "english": 1},
+     "cutoffs": [610, 640, 655]},
+    {"program_id": "SAMPLE-LAW", "name": "Sample Law",
+     "subjects": {"georgian": 3, "english": 1},
+     "cutoffs": [520, 540, 560]},
+    {"program_id": "SAMPLE-BA",  "name": "Sample Business",
+     "subjects": {"maths": 2, "georgian": 1, "english": 1},
+     "cutoffs": [480, 500, 505]},
+    {"program_id": "SAMPLE-BIO", "name": "Sample Biology",
+     "subjects": {"biology": 3, "english": 1},
+     "cutoffs": [450, 470, 480]},
+    {"program_id": "SAMPLE-NEW", "name": "Sample New Program (no history)",
+     "subjects": {"maths": 1, "english": 1},
+     "cutoffs": []}
+  ]
+}
