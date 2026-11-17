@@ -5,7 +5,7 @@
 ## Members and roles
 | Name | GitHub | Primary role | Backup role |
 |---|---|---|---|
-| Mariam Pkhaladze | MariamPHK1 | Backend and APIs | Frontend and user experience |
+| Mariam Pkhaladze | MariamPkh1 | Backend and APIs | Frontend and user experience |
 | Kvirike Gabunia | KVIRIKE7 | Frontend and user experience | Backend / AI features |
 | Irakli Kimutsadze | Irakli-Kimutsadze | Testing, evaluation and quality | Git, CI and deployment |
 
