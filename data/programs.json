@@ -1,0 +1,30 @@
+{
+  "data_label": "SAMPLE DATA - invented numbers for testing, NOT real NAEC cutoffs",
+  "score_max": 100,
+  "programs": [
+    {"code": "TSU-LAW", "name": "Law", "university": "TSU", "city": "Tbilisi", "language": "ka", "field": "law",
+     "tuition": 2250, "grant_seats": 20, "subjects": {"georgian": 1.5, "maths": 1.0, "history": 0.5},
+     "stats": [{"year": 2024, "min_score": 195}, {"year": 2025, "min_score": 205}, {"year": 2026, "min_score": 215}]},
+    {"code": "TSU-CS", "name": "Computer Science", "university": "TSU", "city": "Tbilisi", "language": "ka", "field": "computer-science",
+     "tuition": 2250, "grant_seats": 15, "subjects": {"georgian": 1.0, "maths": 2.0, "english": 0.5},
+     "stats": [{"year": 2024, "min_score": 220}, {"year": 2025, "min_score": 232}, {"year": 2026, "min_score": 240}]},
+    {"code": "ILIA-PSY", "name": "Psychology", "university": "ILIA", "city": "Tbilisi", "language": "ka", "field": "psychology",
+     "tuition": 2250, "grant_seats": 10, "subjects": {"georgian": 1.5, "english": 1.0, "history": 0.5},
+     "stats": [{"year": 2024, "min_score": 180}, {"year": 2025, "min_score": 188}, {"year": 2026, "min_score": 196}]},
+    {"code": "ILIA-BIO", "name": "Biology (new program)", "university": "ILIA", "city": "Tbilisi", "language": "en", "field": "biology",
+     "tuition": 2250, "grant_seats": 0, "subjects": {"georgian": 1.0, "biology": 2.0, "english": 1.0},
+     "stats": []},
+    {"code": "GTU-ENG", "name": "Civil Engineering", "university": "GTU", "city": "Tbilisi", "language": "ka", "field": "engineering",
+     "tuition": 2250, "grant_seats": 25, "subjects": {"georgian": 1.0, "maths": 2.0, "physics": 1.0},
+     "stats": [{"year": 2024, "min_score": 200}, {"year": 2025, "min_score": 205}, {"year": 2026, "min_score": 212}]},
+    {"code": "FREEUNI-BA", "name": "Business Administration", "university": "FREEUNI", "city": "Tbilisi", "language": "en", "field": "business",
+     "tuition": 6000, "grant_seats": 5, "subjects": {"georgian": 1.0, "maths": 1.5, "english": 1.5},
+     "stats": [{"year": 2024, "min_score": 240}, {"year": 2025, "min_score": 250}, {"year": 2026, "min_score": 262}]},
+    {"code": "KIU-CS", "name": "Computer Science", "university": "KIU", "city": "Kutaisi", "language": "en", "field": "computer-science",
+     "tuition": 2250, "grant_seats": 30, "subjects": {"georgian": 1.0, "maths": 2.0, "english": 1.0},
+     "stats": [{"year": 2024, "min_score": 230}, {"year": 2025, "min_score": 238}, {"year": 2026, "min_score": 245}]},
+    {"code": "KIU-MGMT", "name": "Management", "university": "KIU", "city": "Kutaisi", "language": "en", "field": "business",
+     "tuition": 2250, "grant_seats": 20, "subjects": {"georgian": 1.0, "maths": 1.0, "english": 1.5},
+     "stats": [{"year": 2024, "min_score": 190}, {"year": 2025, "min_score": 198}, {"year": 2026, "min_score": 204}]}
+  ]
+}
