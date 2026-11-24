@@ -1,0 +1,50 @@
+# HW2 tool golden set · zone_programs · owner: KVIRIKE7
+# Runs in CI through tests/test_tool_golden.py. No model, no key.
+tool_owner: KVIRIKE7
+cases:
+  - id: k1
+    type: normal
+    why: golden g1, the core output; 247.5 against 195 to 215 is safe
+    tool: zone_programs
+    caller: null
+    arguments: {scores: {georgian: 80, maths: 90, history: 75}, codes: [TSU-LAW]}
+    expect: ok
+    result_has:
+      programs:
+        - {code: TSU-LAW, name: Law, competitive_score: 247.5, zone: safe,
+           cutoff_min: 195.0, cutoff_max: 215.0}
+  - id: k2
+    type: normal
+    why: a program with no cutoff history is unknown, never guessed
+    tool: zone_programs
+    caller: null
+    arguments: {scores: {georgian: 70, biology: 80, english: 60}, codes: [ILIA-BIO]}
+    expect: ok
+    result_has:
+      programs:
+        - {code: ILIA-BIO, name: Biology (new program), competitive_score: 290.0,
+           zone: unknown, cutoff_min: null, cutoff_max: null}
+  - id: k3
+    type: normal
+    why: an unknown program code; the message sends the model to requery_programs
+    tool: zone_programs
+    caller: null
+    arguments: {scores: {maths: 90}, codes: [TSU-ART]}
+    expect: refused
+    error_has: [no program TSU-ART, requery_programs]
+  - id: b1
+    type: bad-input
+    why: the 1e2 bug from HW1; a score sent as text is refused, not parsed
+    tool: zone_programs
+    caller: null
+    arguments: {scores: {maths: "1e2"}}
+    expect: refused
+    error_has: [invalid arguments, scores.maths]
+  - id: a1
+    type: adversarial
+    why: the model tries to set the answer itself; an extra zone field is refused, Python decides zones
+    tool: zone_programs
+    caller: null
+    arguments: {scores: {maths: 40}, codes: [TSU-CS], zone: safe}
+    expect: refused
+    error_has: [invalid arguments, zone]
