@@ -1,0 +1,44 @@
+# HW2 tool golden set · requery_programs · owner: MariamPkh1
+# Runs in CI through tests/test_tool_golden.py. No model, no key.
+tool_owner: MariamPkh1
+cases:
+  - id: m1
+    type: normal
+    why: the everyday chat request, "I can't move to Tbilisi"; only Kutaisi programs come back
+    tool: requery_programs
+    caller: null
+    arguments: {city: Kutaisi}
+    expect: ok
+    result_has: {count: 2}
+  - id: m2
+    type: normal
+    why: several filters at once, and one year of cutoffs, straight from the data
+    tool: requery_programs
+    caller: null
+    arguments: {field: law, grants_only: true, year: 2026}
+    expect: ok
+    result_has: {count: 1}
+  - id: m3
+    type: normal
+    why: no program matches; the message tells the model which filter to drop instead of inventing one
+    tool: requery_programs
+    caller: null
+    arguments: {city: Kutaisi, field: law}
+    expect: refused
+    error_has: [No program matches, drop one filter]
+  - id: b1
+    type: bad-input
+    why: a city we do not cover never reaches the data
+    tool: requery_programs
+    caller: null
+    arguments: {city: Batumi}
+    expect: refused
+    error_has: [invalid arguments, city]
+  - id: a1
+    type: adversarial
+    why: risk 1, the hallucinated cutoff; a 2027 cutoff does not exist, so the contract refuses the year
+    tool: requery_programs
+    caller: null
+    arguments: {field: law, year: 2027}
+    expect: refused
+    error_has: [invalid arguments, year]
