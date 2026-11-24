@@ -82,14 +82,6 @@ def test_single_year_cutoff():
 
 def test_score_equal_to_max_cutoff_is_realistic():
     # score exactly 200 (= max cutoff) → not strictly greater → realistic
-    # need: score = 200, min=192 → 200 >= 182 and 200 <= 200 → realistic
-    result = compute_zone(
-        subject_scores={"georgian": 80, "math": 80},
-        coefficients={"georgian": 1.5, "math": 0.625},
-        cutoff_stats=CUTOFFS_3Y,
-    )
-    # 80*1.5 + 80*0.625 = 120 + 50 = 170 — adjust
-    # simpler: one subject, coefficient 1.0, score exactly 200
     result = compute_zone(
         subject_scores={"georgian": 200},
         coefficients={"georgian": 1.0},
