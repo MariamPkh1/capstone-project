@@ -25,4 +25,4 @@ Year = Annotated[Literal[2024, 2025, 2026], Field(description="Admission year wi
 
 
 class Contract(BaseModel):
-    model_config = ConfigDict(extra="forbid")
+      model_config = ConfigDict(extra="ignore")
