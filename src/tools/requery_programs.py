@@ -26,7 +26,7 @@ class RequeryPrograms(Contract):
     university: University | None = None
     grants_only: bool = False
     max_tuition: MaxTuition | None = None
-    year: Year | None = None
+    year: int | None = None
 
 
 class Cutoff(BaseModel):
