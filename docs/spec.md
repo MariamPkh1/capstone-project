@@ -180,9 +180,11 @@ Total well under $15/month at early traffic. Revisit at 1,000 req/day.
 | LLM calls | OpenRouter via `openai` SDK, all calls through one `llm.py` module |
 | Deploy | Django on Railway, frontend on Vercel |
 
-No graph database. No agent framework. No MCP server.
-Chat uses OpenRouter function calling — tool definitions are plain Python dicts,
-tool execution is a Django function, no external orchestration library needed.
+No graph database. No agent framework.
+Chat uses OpenRouter function calling. Every tool has a contract in code
+(`src/contracts.py`, one module per tool in `src/tools/`), and every call goes through
+`call_tool()` in `src/act.py`, which validates the arguments before anything runs.
+The same tools are served over MCP by `src/mcp_server.py` (HW2), so any MCP host can use them.
 
 ---
 

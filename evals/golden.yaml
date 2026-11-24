@@ -12,7 +12,7 @@ threshold: 0.70
 items:
   - id: g1
     type: factual
-    question: A student scores 80 in Georgian, 90 in Mathematics, and 75 in History. Their competitive score for the TSU Law program (coefficients 1.5 / 1.0 / 0.5) is 222.5. Is that in the Safe, Realistic, or Reach zone given the 3-year cutoff range 195–215?
+    question: A student scores 80 in Georgian, 90 in Mathematics, and 75 in History. Their competitive score for the TSU Law program (coefficients 1.5 / 1.0 / 0.5) is 247.5. Is that in the Safe, Realistic, or Reach zone given the 3-year cutoff range 195–215?
     expect: answered
     must_cite: []
     must_mention: [safe]
