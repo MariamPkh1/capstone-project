@@ -1,0 +1,44 @@
+# HW2 tool golden set · check_priority_list · owner: Irakli-Kimutsadze
+# Runs in CI through tests/test_tool_golden.py. No model, no key.
+tool_owner: Irakli-Kimutsadze
+cases:
+  - id: i1
+    type: normal
+    why: the right order, reach first and safe last, gets no warning
+    tool: check_priority_list
+    caller: null
+    arguments: {codes: [FREEUNI-BA, TSU-LAW], scores: {georgian: 80, maths: 90, history: 75, english: 10}}
+    expect: ok
+    result_has: {valid: true}
+  - id: i2
+    type: normal
+    why: the core promise; a safe program above a reach one is flagged, because NAEC would stop at the safe one
+    tool: check_priority_list
+    caller: null
+    arguments: {codes: [TSU-LAW, FREEUNI-BA], scores: {georgian: 80, maths: 90, history: 75, english: 10}}
+    expect: ok
+    result_has: {valid: false}
+  - id: i3
+    type: normal
+    why: a duplicate code; NAEC lists each program once, and the message says how to fix it
+    tool: check_priority_list
+    caller: null
+    arguments: {codes: [TSU-LAW, TSU-LAW], scores: {georgian: 80, maths: 90, history: 75}}
+    expect: refused
+    error_has: [appears more than once, remove the duplicate]
+  - id: b1
+    type: bad-input
+    why: an empty list never reaches the check
+    tool: check_priority_list
+    caller: null
+    arguments: {codes: [], scores: {maths: 90}}
+    expect: refused
+    error_has: [invalid arguments, codes]
+  - id: a1
+    type: adversarial
+    why: SQL smuggled into a program code; the pattern stops it before any lookup
+    tool: check_priority_list
+    caller: null
+    arguments: {codes: ["TSU-LAW'; DROP TABLE program;--"], scores: {maths: 90}}
+    expect: refused
+    error_has: [invalid arguments, codes.0]
