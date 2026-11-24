@@ -11,7 +11,7 @@ from typing import Annotated, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
-ProgramCode = Annotated[str, Field(pattern=r"^[A-Z]{2,8}-[A-Z]{2,6}$", description="Program code, like TSU-LAW")]
+ProgramCode = Annotated[str, Field(description="Program code, like TSU-LAW")]
 University = Annotated[Literal["TSU", "ILIA", "GTU", "FREEUNI", "KIU"], Field(description="University")]
 City = Annotated[Literal["Tbilisi", "Kutaisi"], Field(description="City the program is taught in")]
 Language = Annotated[Literal["ka", "en"], Field(description="Teaching language: ka (Georgian) or en (English)")]
